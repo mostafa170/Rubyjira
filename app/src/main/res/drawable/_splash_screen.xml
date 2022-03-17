@@ -8,7 +8,7 @@
     </item>
 
     <item>
-        <bitmap android:src="@drawable/ic_splash" android:gravity="center"/>
+        <bitmap android:src="@drawable/rubikans" android:gravity="center"/>
     </item>
 
 </layer-list>

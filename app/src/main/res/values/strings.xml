@@ -26,4 +26,6 @@
     <string name="overdue">Overdue</string>
     <string name="noOverdue">No Overdue</string>
     <string name="completed">Completed</string>
+    <string name="password_not_valid">Password must contain at least 8 characters</string>
+    <string name="label_enter_your_email">Enter your email</string>
 </resources>

@@ -44,6 +44,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_23sdp"
                     android:contentDescription="@string/img"
+                    android:visibility="gone"
                     android:src="@drawable/ic_arrow_right"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/editImage" />
@@ -129,7 +130,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ed_email"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:shadowColor="@color/color_94c356" />
+                android:background="@color/color_94c356" />
 
             <TextView
                 android:id="@+id/tv_userPasswordTXT"
@@ -161,7 +162,7 @@
                 android:id="@+id/tv_settingTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_29sdp"
                 android:text="@string/label_setting"
                 android:textColor="@color/black"
@@ -187,12 +188,11 @@
                 android:id="@+id/tv_logoutTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_29sdp"
                 android:text="@string/label_logout"
                 android:textColor="@color/black"
                 android:drawablePadding="@dimen/_5sdp"
-                app:drawableStartCompat="@drawable/ic_baseline_logout_24"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tv_userPasswordTXT"

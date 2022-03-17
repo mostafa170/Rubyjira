@@ -6,23 +6,16 @@
     <data>
 
     </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".app.presentation.home.HomeFragment">
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toTopOf="@+id/iv_home"
-            app:layout_constraintTop_toTopOf="parent">
+            android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:context=".app.presentation.home.HomeFragment">
 
                 <TextView
                     android:id="@+id/tv_label_filter"
@@ -171,5 +164,4 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.devartlab.rubyjira.domain.entities.user.UserEntities
 
 class MainViewModel (private val application: Application, private val resources: Resources): ViewModel(){
 
@@ -30,7 +31,9 @@ class MainViewModel (private val application: Application, private val resources
     private val _showBottomNavigation = MutableLiveData<Boolean>()
     val showBottomNavigation: LiveData<Boolean>
         get() = _showBottomNavigation
-
+    private val _profile = MutableLiveData<UserEntities>()
+    val profile: LiveData<UserEntities>
+        get() = _profile
     fun onBottomNavigationClicked(position: Int){
         _currentScreen.value = position
     }
@@ -52,7 +55,7 @@ class MainViewModel (private val application: Application, private val resources
 
 
     init {
-
+        _profile.value = UserEntities.getSavedProfile()
     }
 
     fun showLoading(){

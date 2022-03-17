@@ -10,6 +10,7 @@
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_bg_curve_top_white.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_bg_curve_white.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_ic_home.xml" value="0.113" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_splash_screen.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/bg_green.xml" value="0.1705" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_arrow_right.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.1705" />
@@ -34,7 +35,7 @@
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/activity_main.xml" value="0.178125" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_change_password.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1921875" />
-        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_home.xml" value="0.19617224880382775" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_notification.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_profile.xml" value="0.22" />

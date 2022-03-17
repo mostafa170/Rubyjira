@@ -36,7 +36,7 @@ object ApiManager{
         .addConverterFactory(GsonConverterFactory.create(gson))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(client)
-        .baseUrl("https://api.aldamina.sa.com/api/")
+        .baseUrl("https://task.rubikans.com/api/")
         .build()
 
     val apiCalls : APICalls by lazy {

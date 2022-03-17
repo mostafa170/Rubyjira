@@ -10,8 +10,12 @@
         android:name="com.devartlab.rubyjira.app.presentation.login.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -22,20 +26,28 @@
         android:name="com.devartlab.rubyjira.app.presentation.changePassword.ChangePasswordFragment"
         android:label="ChangePasswordFragment" />
     <fragment
-        android:id="@+id/showProfileFragment"
-        android:name="com.devartlab.rubyjira.app.presentation.showProfile.ShowProfileFragment"
-        android:label="ShowProfileFragment" >
-        <action
-            android:id="@+id/action_showProfileFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_showProfileFragment_to_changePasswordFragment"
-            app:destination="@id/changePasswordFragment" />
-    </fragment>
+        android:id="@+id/editProfileFragment"
+        android:name="com.devartlab.rubyjira.app.presentation.editProfile.ProfileFragment"
+        android:label="EditProfileFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.devartlab.rubyjira.app.presentation.editProfile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:name="com.devartlab.rubyjira.app.presentation.showProfile.ShowProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.devartlab.rubyjira.app.presentation.notification.NotificationFragment"

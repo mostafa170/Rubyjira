@@ -1,60 +1,151 @@
 package com.devartlab.rubyjira.app.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
+import androidx.fragment.app.viewModels
 import com.devartlab.rubyjira.R
+import com.devartlab.rubyjira.app.presentation.main.MainActivityEventsListener
+import com.devartlab.rubyjira.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val viewModel:HomeViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val mainActivityEventsListener: MainActivityEventsListener by lazy {
+        requireNotNull(activity){
+            "Context must not be null"
         }
+        activity as MainActivityEventsListener
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        val binding=FragmentHomeBinding.inflate(inflater)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+        binding.executePendingBindings()
+        viewModel.error.observe(viewLifecycleOwner) {
+            if (it != null) {
+                mainActivityEventsListener.showErrorMessage(it)
+                viewModel.onErrorMessageShown()
             }
+        }
+
+        viewModel.loading.observe(viewLifecycleOwner) {
+            if (it != null && it)
+                mainActivityEventsListener.showLoading()
+            else
+                mainActivityEventsListener.hideLoading()
+        }
+
+        viewModel.unauthenticated.observe(viewLifecycleOwner) {
+            if (it != null && it){
+                mainActivityEventsListener.userUnauthenticated()
+            }
+        }
+        viewModel.selectStatusTask.observe(viewLifecycleOwner) {
+            if (it !=null && it){
+                val popupMenu: android.widget.PopupMenu =
+                    android.widget.PopupMenu(context, binding.edFilter)
+                popupMenu.menuInflater.inflate(R.menu.task_popup_menu, popupMenu.menu)
+                popupMenu.setOnMenuItemClickListener(android.widget.PopupMenu.OnMenuItemClickListener { item ->
+                    when (item.itemId) {
+                        R.id.action_index -> {
+                            binding.edFilter.setText(R.string.index)
+                            viewModel.setSelectTaskStatus("index")
+                        }
+                        R.id.action_today -> {
+                            binding.edFilter.setText(R.string.today)
+                            viewModel.setSelectTaskStatus("today")
+                        }
+                        R.id.action_upcoming -> {
+                            binding.edFilter.setText(R.string.upcoming)
+                            viewModel.setSelectTaskStatus("upcoming")
+                        }
+                        R.id.action_overdue -> {
+                            binding.edFilter.setText(R.string.overdue)
+                            viewModel.setSelectTaskStatus("overdue")
+                        }
+                        R.id.action_noOverdue -> {
+                            binding.edFilter.setText(R.string.noOverdue)
+                            viewModel.setSelectTaskStatus("no_overdue")
+                        }
+                        R.id.action_completed -> {
+                            binding.edFilter.setText(R.string.completed)
+                            viewModel.setSelectTaskStatus("completed")
+                        }
+                    }
+                    true
+                })
+                popupMenu.show()
+                viewModel.onSelectTaskDone()
+            }
+        }
+        viewModel.selectProject.observe(viewLifecycleOwner){
+            if (it !=null && it){
+                viewModel.getSelectProjectApi()
+                viewModel.onSelectProjectDone()
+            }
+        }
+
+        viewModel.myProject.observe(viewLifecycleOwner){
+            if (it != null){
+                val popup = PopupMenu(
+                    requireContext(), binding.tvProject)
+                for (i in it.indices) {
+                    popup.menu.add(
+                        i, i, i,
+                        it[i].name)
+                }
+                popup.setOnMenuItemClickListener { item ->
+                    binding.tvProject.text = it[item.itemId].name
+                    viewModel.setSelectProjectId(it[item.itemId].uuid)
+                    false
+                }
+                popup.show()
+            }
+
+        }
+        val onItemClickListener = OnIndexTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewIndex.apply {
+            adapter=IndexTaskAdapter(onItemClickListener)
+        }
+        val onItemClickListenerToday = OnTodayTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewToday.apply {
+            adapter=TodayTaskAdapter(onItemClickListenerToday)
+        }
+        val onItemClickListenerUpcoming = OnUpcomingTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewUpcoming.apply {
+            adapter=UpcomingTaskAdapter(onItemClickListenerUpcoming)
+        }
+        val onItemClickListenerOverdue = OnOverdueTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewOverdue.apply {
+            adapter=OverdueTaskAdapter(onItemClickListenerOverdue)
+        }
+        return binding.root
     }
 }

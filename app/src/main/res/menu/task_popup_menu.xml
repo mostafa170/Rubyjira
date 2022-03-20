@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_index"
+        android:title="@string/index"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_today"
+        android:title="@string/today"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_upcoming"
+        android:title="@string/upcoming"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_overdue"
+        android:title="@string/overdue"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_noOverdue"
+        android:title="@string/noOverdue"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_completed"
+        android:title="@string/completed"
+        app:showAsAction="never"/>
+</menu>

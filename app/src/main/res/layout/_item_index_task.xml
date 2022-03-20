@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="tasks"
+            type="com.devartlab.rubyjira.domain.entities.tasks.IndexEntities" />
+        <variable
+            name="onClickListener"
+            type="com.devartlab.rubyjira.app.presentation.home.OnIndexTaskClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tasks_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_user"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                imageUrlCircle="@{tasks.avatar_url}"
+                app:civ_border_color="@color/color_94c356"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/user_logo" />
+
+            <TextView
+                android:id="@+id/tv_title_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:text="@{tasks.content}"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/iv_user"
+                app:layout_constraintEnd_toStartOf="@id/checkbox_finish_task"
+                app:layout_constraintStart_toEndOf="@+id/iv_user"
+                app:layout_constraintTop_toTopOf="@id/iv_user"
+                tools:text="Earum error reiciendis reiciendis enim optio n" />
+
+            <CheckBox
+                android:id="@+id/checkbox_finish_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="@id/iv_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_user" />
+
+            <TextView
+                android:id="@+id/tv_name_project"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="@{tasks.project_name}"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_date_task"
+                app:layout_constraintStart_toStartOf="@id/iv_user"
+                app:layout_constraintTop_toBottomOf="@id/iv_user"
+                tools:text="Android" />
+
+            <TextView
+                android:id="@+id/tv_date_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:text="@{tasks.created_at}"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_calendar_month"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name_project"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_name_project"
+                tools:text="22/2/2022" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.devartlab.rubyjira.app.presentation.showProfile.ShowProfileViewModel" />
     </data>
 
     <ScrollView
@@ -195,6 +197,7 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:onClick="@{() -> viewModel.getLogoutApi()}"
                 app:layout_constraintStart_toStartOf="@id/tv_userPasswordTXT"
                 app:layout_constraintTop_toBottomOf="@+id/tv_settingTXT"  />
         </androidx.constraintlayout.widget.ConstraintLayout>

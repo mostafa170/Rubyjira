@@ -21,7 +21,7 @@ data class LoginResponse(
 data class LoginData(
 
 	@field:SerializedName("user")
-	val user: User,
+	val user: UserData,
 
 	@field:SerializedName("token")
 	val token: String
@@ -33,7 +33,7 @@ data class Error(
 	val password: List<String>
 )
 
-data class User(
+data class UserData(
 
 	@field:SerializedName("tenant_id")
 	val tenantId: Int,

@@ -4,6 +4,7 @@ const val DEFAULT_LANGUAGE = "en"
 
 const val UNAUTHZ: String = "401"
 
+const val UN_AUTH: String = "UnauthenticatedFailure"
 const val SUCCESS: Int = 200
 const val SUCCESS201: Int = 201
 const val USER_UNAUTHENTICATED: Int = 401

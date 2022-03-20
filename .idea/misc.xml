@@ -31,15 +31,22 @@
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_error.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_loading.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_success.xml" value="0.1921875" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_completed_task.xml" value="0.1921875" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_index_task.xml" value="0.22" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_no_overdue_task.xml" value="0.1" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_overdue_task.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_task.xml" value="0.22" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_today_task.xml" value="0.1" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_upcoming_task.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/activity_main.xml" value="0.178125" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_change_password.xml" value="0.25" />
-        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1921875" />
-        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_notification.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
-        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_show_profile.xml" value="0.2" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_show_profile.xml" value="0.171875" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/menu/task_popup_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

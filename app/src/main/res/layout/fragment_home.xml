@@ -4,164 +4,214 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.devartlab.rubyjira.app.presentation.home.HomeViewModel" />
     </data>
-        <ScrollView
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_5sdp"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            tools:context=".app.presentation.home.HomeFragment">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_label_filter"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:context=".app.presentation.home.HomeFragment">
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/select_tasks"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/ed_filter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ed_filter" />
 
-                <TextView
-                    android:id="@+id/tv_label_filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:text="@string/select_tasks"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ed_filter"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/ed_filter" />
+            <TextView
+                android:id="@+id/ed_filter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/bg_green"
+                android:hint="@string/select"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/color_94c356"
+                android:textSize="@dimen/_12sdp"
+                android:onClick="@{() -> viewModel.onSelectTaskClicked()}"
+                app:drawableStartCompat="@drawable/ic_drop_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_label_filter"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/ed_filter"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/_custom_bg_curve_edit_text"
-                    android:hint="@string/select"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    app:drawableStartCompat="@drawable/ic_drop_down"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_label_filter"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_project"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="@string/label_filter_project"
+                android:textColorHint="@color/color_94c356"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{() -> viewModel.onSelectProjectClicked()}"
+                android:background="@drawable/bg_green"
+                app:layout_constraintEnd_toEndOf="@id/ed_filter"
+                app:layout_constraintStart_toStartOf="@id/tv_label_filter"
+                app:layout_constraintTop_toBottomOf="@+id/ed_filter"
+                app:drawableStartCompat="@drawable/ic_baseline_desktop_mac_24" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textField_login_pass"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:hint="@string/label_filter_project"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/color_94c356"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="15"
-                    app:endIconMode="clear_text"
-                    app:helperTextTextColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="@id/ed_filter"
-                    app:layout_constraintStart_toStartOf="@id/tv_label_filter"
-                    app:layout_constraintTop_toBottomOf="@+id/ed_filter"
-                    app:prefixTextColor="@color/color_94c356"
-                    app:startIconDrawable="@drawable/ic_baseline_desktop_mac_24">
+            <TextView
+                android:id="@+id/tv_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/index"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_project" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/ed_login_pass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textColor="@color/black" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_index"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                indexTaskItems="@{viewModel.myTask.indexEntities}"
+                android:visibility="@{viewModel.myTask.indexEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_index"
+                tools:listitem="@layout/_item_index_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/today"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_index" />
 
-                <TextView
-                    android:id="@+id/tv_upcoming"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/upcoming"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    app:layout_constraintStart_toStartOf="@+id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/textField_login_pass" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_today"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                todayTaskItems="@{viewModel.myTask.todayEntities}"
+                android:visibility="@{viewModel.myTask.todayEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_today"
+                tools:listitem="@layout/_item_today_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_upcoming"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/textField_login_pass"
-                    app:layout_constraintStart_toStartOf="@id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_upcoming"
-                    tools:listitem="@layout/_item_task"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <TextView
+                android:id="@+id/tv_upcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upcoming"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_today" />
 
-                <TextView
-                    android:id="@+id/tv_overdue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/overdue"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    app:layout_constraintStart_toStartOf="@+id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_upcoming" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_upcoming"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                upcomingTaskItems="@{viewModel.myTask.upcomingEntities}"
+                android:visibility="@{viewModel.myTask.upcomingEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_upcoming"
+                tools:listitem="@layout/_item_upcoming_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_overdue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/textField_login_pass"
-                    app:layout_constraintStart_toStartOf="@id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_overdue"
-                    tools:listitem="@layout/_item_task"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <TextView
+                android:id="@+id/tv_overdue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/overdue"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_upcoming" />
 
-                <TextView
-                    android:id="@+id/tv_noOverdue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/noOverdue"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    app:layout_constraintStart_toStartOf="@+id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_overdue" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_overdue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                overdueTaskItems="@{viewModel.myTask.overdueEntities}"
+                android:visibility="@{viewModel.myTask.overdueEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_overdue"
+                tools:listitem="@layout/_item_overdue_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_noOverdue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/textField_login_pass"
-                    app:layout_constraintStart_toStartOf="@id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_noOverdue"
-                    tools:listitem="@layout/_item_task"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <TextView
+                android:id="@+id/tv_noOverdue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/noOverdue"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_overdue" />
 
-                <TextView
-                    android:id="@+id/tv_completed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/completed"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    app:layout_constraintStart_toStartOf="@+id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_noOverdue" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_noOverdue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_noOverdue"
+                tools:listitem="@layout/_item_no_overdue_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_completed"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/textField_login_pass"
-                    app:layout_constraintStart_toStartOf="@id/textField_login_pass"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_completed"
-                    tools:listitem="@layout/_item_task"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+            <TextView
+                android:id="@+id/tv_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/completed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="@+id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_noOverdue" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_completed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/tv_project"
+                app:layout_constraintStart_toStartOf="@id/tv_project"
+                app:layout_constraintTop_toBottomOf="@+id/tv_completed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                tools:listitem="@layout/_item_completed_task"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

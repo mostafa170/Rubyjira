@@ -146,6 +146,22 @@ class HomeFragment : Fragment() {
         binding.recyclerViewOverdue.apply {
             adapter=OverdueTaskAdapter(onItemClickListenerOverdue)
         }
+        val onItemClickListenerNoOverdue = OnNoOverdueTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewNoOverdue.apply {
+            adapter=NoOverdueTaskAdapter(onItemClickListenerNoOverdue)
+        }
+        val onItemClickListenerCompleted = OnCompletedTaskClickListener{
+            if (it !=null){
+                Log.e("TAG", "onItemClickListener: $it" )
+            }
+        }
+        binding.recyclerViewCompleted.apply {
+            adapter=CompletedTaskAdapter(onItemClickListenerCompleted)
+        }
         return binding.root
     }
 }

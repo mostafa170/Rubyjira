@@ -7,7 +7,9 @@
         <variable
             name="tasks"
             type="com.devartlab.rubyjira.domain.entities.tasks.NoOverdueEntities" />
-
+        <variable
+            name="onClickListener"
+            type="com.devartlab.rubyjira.app.presentation.home.OnNoOverdueTaskClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -30,6 +32,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 app:civ_border_color="@color/color_94c356"
                 imageUrlCircle="@{tasks.avatar_url}"
+                app:civ_border_width="@dimen/_1sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/user_logo" />

@@ -6,14 +6,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.devartlab.rubyjira.R
-import com.devartlab.rubyjira.app.presentation.home.IndexTaskAdapter
-import com.devartlab.rubyjira.app.presentation.home.OverdueTaskAdapter
-import com.devartlab.rubyjira.app.presentation.home.TodayTaskAdapter
-import com.devartlab.rubyjira.app.presentation.home.UpcomingTaskAdapter
-import com.devartlab.rubyjira.domain.entities.tasks.IndexEntities
-import com.devartlab.rubyjira.domain.entities.tasks.OverdueEntities
-import com.devartlab.rubyjira.domain.entities.tasks.TodayEntities
-import com.devartlab.rubyjira.domain.entities.tasks.UpcomingEntities
+import com.devartlab.rubyjira.app.presentation.home.*
+import com.devartlab.rubyjira.domain.entities.tasks.*
 
 @BindingAdapter("myImageResource")
 fun bindImageViewResourceId(imageView: ImageView, resourceId: Int) {
@@ -68,6 +62,22 @@ fun bindUpcomingTaskItemsRecyclerView(recyclerView: RecyclerView, data: List<Upc
 fun bindOverdueTaskItemsRecyclerView(recyclerView: RecyclerView, data: List<OverdueEntities>?) {
     recyclerView.adapter?.let {
         val adapter = it as OverdueTaskAdapter
+        adapter.submitList(data)
+    }
+}
+
+@BindingAdapter("noOverdueTaskItems")
+fun bindNoOverdueTaskItemsRecyclerView(recyclerView: RecyclerView, data: List<NoOverdueEntities>?) {
+    recyclerView.adapter?.let {
+        val adapter = it as NoOverdueTaskAdapter
+        adapter.submitList(data)
+    }
+}
+
+@BindingAdapter("completedTaskItems")
+fun bindCompletedTaskItemsRecyclerView(recyclerView: RecyclerView, data: List<CompletedEntities>?) {
+    recyclerView.adapter?.let {
+        val adapter = it as CompletedTaskAdapter
         adapter.submitList(data)
     }
 }

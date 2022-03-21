@@ -10,7 +10,6 @@
         <variable
             name="onClickListener"
             type="com.devartlab.rubyjira.app.presentation.home.OnIndexTaskClickListener" />
-
     </data>
 
     <androidx.cardview.widget.CardView
@@ -33,6 +32,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 imageUrlCircle="@{tasks.avatar_url}"
+                app:civ_border_width="@dimen/_1sdp"
                 app:civ_border_color="@color/color_94c356"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

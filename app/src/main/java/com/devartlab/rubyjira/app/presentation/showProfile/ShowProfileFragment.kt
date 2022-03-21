@@ -27,7 +27,7 @@ class ShowProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val binding=FragmentShowProfileBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -38,6 +38,7 @@ class ShowProfileFragment : Fragment() {
     }
 
     private fun onObserverListener() {
+        viewModel.setProfile()
         viewModel.error.observe(viewLifecycleOwner) {
             if (it != null) {
                 mainActivityEventsListener.showErrorMessage(it)
@@ -57,6 +58,21 @@ class ShowProfileFragment : Fragment() {
                 SharedPreferencesData.logout()
                 this.findNavController().navigate(R.id.loginFragment)
             mainActivityEventsListener.showSuccessMessage(it.message)
+        }
+        viewModel.goToEditProfile.observe(viewLifecycleOwner){
+            if (it != null && it){
+                this.findNavController()
+                    .navigate(ShowProfileFragmentDirections.actionProfileFragmentToEditProfileFragment())
+                viewModel.onGoToEditProfileNavigated()
+            }
+        }
+
+        viewModel.goToChangePassword.observe(viewLifecycleOwner){
+            if (it != null && it){
+                this.findNavController()
+                    .navigate(ShowProfileFragmentDirections.actionProfileFragmentToChangePasswordFragment())
+                viewModel.onGoToChangePasswordNavigated()
+            }
         }
     }
 }

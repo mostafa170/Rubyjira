@@ -445,14 +445,14 @@ fun MyTaskData.toMyTaskDomain()=
 		completed.map { it.toCompletedTaskDomain()}
     )
 fun IndexItem.toIndexTaskDomain() =
-	IndexEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	IndexEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)
 fun TodayItem.toTodayTaskDomain() =
-	TodayEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	TodayEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)
 fun UpcomingItem.toUpcomingTaskDomain() =
-	UpcomingEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	UpcomingEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)
 fun OverdueItem.toOverdueTaskDomain() =
-	OverdueEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	OverdueEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)
 fun NoOverdueItem.toNoOverdueTaskDomain() =
-	NoOverdueEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	NoOverdueEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)
 fun CompletedItem.toCompletedTaskDomain() =
-	CompletedEntities(id,user.avatarUrl,content,getDateFormatted(),column.project.name)
+	CompletedEntities(uuid,user.avatarUrl,content,getDateFormatted(),column.project.name)

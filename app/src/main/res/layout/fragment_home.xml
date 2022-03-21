@@ -79,6 +79,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:visibility="@{viewModel.myTask.indexEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/tv_project" />
@@ -103,6 +104,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:visibility="@{viewModel.myTask.todayEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_view_index" />
@@ -126,6 +128,7 @@
                 android:text="@string/upcoming"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
+                android:visibility="@{viewModel.myTask.upcomingEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
@@ -151,6 +154,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:visibility="@{viewModel.myTask.overdueEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_view_upcoming" />
@@ -174,6 +178,7 @@
                 android:text="@string/noOverdue"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
+                android:visibility="@{viewModel.myTask.noOverdueEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
@@ -199,6 +204,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                android:visibility="@{viewModel.myTask.completedEntities.size > 0 ? View.VISIBLE : View.GONE}"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_view_noOverdue" />
@@ -212,8 +218,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_completed"
                 completedTaskItems="@{viewModel.myTask.completedEntities}"
                 android:visibility="@{viewModel.myTask.completedEntities.size > 0 ? View.VISIBLE : View.GONE}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/_10sdp"
                 tools:listitem="@layout/_item_completed_task"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </androidx.constraintlayout.widget.ConstraintLayout>

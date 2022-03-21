@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.devartlab.rubyjira.R
 import com.devartlab.rubyjira.app.presentation.main.MainActivityEventsListener
+import com.devartlab.rubyjira.data.utils.SharedPreferencesData
 import com.devartlab.rubyjira.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -125,6 +127,8 @@ class HomeFragment : Fragment() {
         val onItemClickListenerToday = OnTodayTaskClickListener{
             if (it !=null){
                 Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewToday.apply {
@@ -161,6 +165,11 @@ class HomeFragment : Fragment() {
         }
         binding.recyclerViewCompleted.apply {
             adapter=CompletedTaskAdapter(onItemClickListenerCompleted)
+        }
+        viewModel.completedTask.observe(viewLifecycleOwner) {
+            if (it !=null)
+                viewModel.getMyTaskApi()
+            mainActivityEventsListener.showSuccessMessage(it.message)
         }
         return binding.root
     }

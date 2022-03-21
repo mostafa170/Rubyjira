@@ -3,9 +3,11 @@ package com.devartlab.rubyjira.app.presentation.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.devartlab.rubyjira.data.models.DefaultResponse
 import com.devartlab.rubyjira.data.utils.UN_AUTH
 import com.devartlab.rubyjira.domain.entities.project.MyProjectEntities
 import com.devartlab.rubyjira.domain.entities.tasks.MytasksEntities
+import com.devartlab.rubyjira.domain.usecases.completeTask.CompleteTaskUseCase
 import com.devartlab.rubyjira.domain.usecases.home.MyProjectsUseCase
 import com.devartlab.rubyjira.domain.usecases.home.MyTasksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val myProjectsUseCase: MyProjectsUseCase,
-    private val myTasksUseCase: MyTasksUseCase
+    private val myTasksUseCase: MyTasksUseCase,
+    private val completeTaskUseCase: CompleteTaskUseCase
 ) : ViewModel() {
     private val viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -63,9 +66,18 @@ class HomeViewModel @Inject constructor(
         getMyTaskApi()
     }
 
+    private val _selectCompletedTask = MutableLiveData<String>()
+    fun setSelectCompletedTask(value: String) {
+        _selectCompletedTask.value = value
+    }
+
     private val _myProject = MutableLiveData<List<MyProjectEntities>?>()
     val myProject: LiveData<List<MyProjectEntities>?>
         get() = _myProject
+
+    private val _completedTask=MutableLiveData<DefaultResponse>()
+    val completedTask:LiveData<DefaultResponse>
+        get() = _completedTask
 
     init {
         getMyTaskApi()
@@ -93,6 +105,20 @@ class HomeViewModel @Inject constructor(
                 else _error.postValue(it.toErrorString())
             }, {
                 _myProject.postValue(it)
+            })
+            _loading.postValue(false)
+
+        }
+    }
+
+    fun getSelectCompletedTaskApi() {
+        viewModelScope.launch {
+            _loading.postValue(true)
+            completeTaskUseCase.invoke(_selectCompletedTask.value.toString()).fold({
+                if (it.toErrorString() == UN_AUTH) _unauthenticated.postValue(true)
+                else _error.postValue(it.toErrorString())
+            }, {
+                _completedTask.postValue(it)
             })
             _loading.postValue(false)
 

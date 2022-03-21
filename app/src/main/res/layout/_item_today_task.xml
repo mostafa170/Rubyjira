@@ -7,7 +7,9 @@
         <variable
             name="tasks"
             type="com.devartlab.rubyjira.domain.entities.tasks.TodayEntities" />
-
+        <variable
+            name="isSelected"
+            type="Boolean" />
         <variable
             name="onClickListener"
             type="com.devartlab.rubyjira.app.presentation.home.OnTodayTaskClickListener" />
@@ -59,8 +61,9 @@
                 android:id="@+id/checkbox_finish_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:gravity="center"
+                android:checked="@{isSelected ? true : false}"
+                android:onClick="@{() -> onClickListener.onClick(tasks)}"
                 app:layout_constraintBottom_toBottomOf="@id/iv_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_user" />

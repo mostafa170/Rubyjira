@@ -30,4 +30,5 @@
     <string name="label_enter_your_email">Enter your email</string>
     <string name="index">Inbox</string>
     <string name="today">Today</string>
+    <string name="editProfile">Edit profile</string>
 </resources>

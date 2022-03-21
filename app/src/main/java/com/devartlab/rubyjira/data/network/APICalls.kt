@@ -2,12 +2,10 @@ package com.devartlab.rubyjira.data.network
 
 import com.devartlab.rubyjira.app.presentation.login.LoginRequest
 import com.devartlab.rubyjira.data.models.LoginResponse
-import com.devartlab.rubyjira.data.models.LogoutResponse
+import com.devartlab.rubyjira.data.models.DefaultResponse
 import com.devartlab.rubyjira.data.models.MyProjectResponse
 import com.devartlab.rubyjira.data.models.MyTasksResponse
 import kotlinx.coroutines.Deferred
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -19,7 +17,10 @@ interface APICalls {
     fun getLoginApiAsync(@Body loginRequest: LoginRequest): Deferred<Response<LoginResponse>>
 
     @GET("logout")
-    fun getLogoutApiAsync(): Deferred<Response<LogoutResponse>>
+    fun getLogoutApiAsync(): Deferred<Response<DefaultResponse>>
+
+    @POST("complete_task")
+    fun getCompleteTaskApiAsync(@Query("uuid") uuid: String): Deferred<Response<DefaultResponse>>
 
     @GET("my_projects")
     fun getMyProjectsApiAsync(): Deferred<Response<MyProjectResponse>>

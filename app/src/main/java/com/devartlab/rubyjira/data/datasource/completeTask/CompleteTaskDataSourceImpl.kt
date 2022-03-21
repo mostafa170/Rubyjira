@@ -1,19 +1,23 @@
-package com.devartlab.rubyjira.data.datasource.logout
+package com.devartlab.rubyjira.data.datasource.completeTask
 
 import arrow.core.Either
 import com.devartlab.rubyjira.data.models.DefaultResponse
 import com.devartlab.rubyjira.data.network.ApiManager
-import com.devartlab.rubyjira.data.utils.*
+import com.devartlab.rubyjira.data.utils.AppFailure
+import com.devartlab.rubyjira.data.utils.SUCCESS
+import com.devartlab.rubyjira.data.utils.SomethingWentWrongFailure
+import com.devartlab.rubyjira.data.utils.getErrors
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import javax.inject.Inject
 
-class LogoutDataSourceImpl @Inject constructor(private val dispatcher: CoroutineDispatcher):LogoutDataSource{
-    override suspend fun getLogout():Either<AppFailure, DefaultResponse> =
+class CompleteTaskDataSourceImpl @Inject constructor(private val dispatcher: CoroutineDispatcher):
+    CompleteTaskDataSource {
+    override suspend fun getCompleteTask(uuid: String): Either<AppFailure, DefaultResponse> =
         withContext(dispatcher){
             try {
-                val response: Response<DefaultResponse> = ApiManager.apiCalls.getLogoutApiAsync().await()
+                val response: Response<DefaultResponse> = ApiManager.apiCalls.getCompleteTaskApiAsync(uuid).await()
                 when {
                     response.code() == SUCCESS -> {
                         response.body()?.let { body ->

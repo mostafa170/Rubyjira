@@ -83,7 +83,7 @@ object  MyDate
 
     @SuppressLint("NewApi")
     fun formatDate(dateAPi: String?): String {
-        val outputFormat: DateFormat = SimpleDateFormat("dd/MM/yy")
+        val outputFormat: DateFormat = SimpleDateFormat("dd/MM/yyyy")
         val inputFormat: DateFormat =
             SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         var date: Date? = null

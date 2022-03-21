@@ -10,13 +10,15 @@ import com.devartlab.rubyjira.domain.entities.tasks.IndexEntities
 
 class IndexTaskAdapter (private val onItemClickListener: OnIndexTaskClickListener):
 ListAdapter<IndexEntities, IndexTaskAdapter.ViewHolder>(IndexTaskTypeDiffCallback()){
-
+    private var selectedItem: IndexEntities? = null
     class ViewHolder(val binding: ItemIndexTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             index: IndexEntities,
+            isSelected: Boolean,
             onClickListener: OnIndexTaskClickListener
         ) {
             binding.tasks = index
+            binding.isSelected = isSelected
             binding.onClickListener = onClickListener
             binding.executePendingBindings()
         }
@@ -32,8 +34,14 @@ ListAdapter<IndexEntities, IndexTaskAdapter.ViewHolder>(IndexTaskTypeDiffCallbac
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position),onItemClickListener)
-
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position), selectedItem == getItem(position), onItemClickListener)
+        holder.binding.checkboxFinishTask.setOnClickListener {
+            selectedItem = getItem(position)
+            notifyDataSetChanged()
+            onItemClickListener.clickListener(selectedItem)
+        }
+    }
 }
 
 

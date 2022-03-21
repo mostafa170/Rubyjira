@@ -19,14 +19,14 @@ data class UserEntities(
         SharedPreferencesUtils.saveString("_user", toJsonString())
     }
     companion object {
-        private const val defaultProfile = "{\"id\":0,\"name\": \"\",\"avatarUrl\":\"\"," +
+        private const val defaultProfile = "{\"id\":0,\"avatarUrl\": \"\",\"name\":\"\"," +
                 "\"email\":\"\",\"token\": \"\"}"
         fun getSavedProfile(): UserEntities =
             JSONObject(SharedPreferencesUtils.getString("_user", defaultProfile)).run {
                 UserEntities(
                     this.getInt("id"),
-                    this.getString("name"),
                     this.getString("avatarUrl"),
+                    this.getString("name"),
                     this.getString("email"),
                     this.getString("token")
                 )

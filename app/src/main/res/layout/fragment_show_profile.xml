@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="user"
+            type="com.devartlab.rubyjira.domain.entities.user.UserEntities" />
+
         <variable
             name="viewModel"
             type="com.devartlab.rubyjira.app.presentation.showProfile.ShowProfileViewModel" />
@@ -29,136 +34,102 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/iv_editProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_23sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:contentDescription="@string/img"
-                    android:src="@drawable/ic_edit_icon"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/editImage" />
-
-                <ImageView
                     android:id="@+id/iv_back"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_23sdp"
                     android:contentDescription="@string/img"
-                    android:visibility="gone"
                     android:src="@drawable/ic_arrow_right"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/editImage" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/editImage"
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_width="@dimen/_66sdp"
+                    android:layout_height="@dimen/_66sdp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:padding="10.0dip"
+                    imageUrlCircle="@{viewModel.profile.avatarUrl}"
                     android:src="@drawable/user_logo"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ed_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@{viewModel.profile.name}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editImage"
+                    tools:text="mostafa kamel kamel" />
+
+                <TextView
+                    android:id="@+id/ed_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@{viewModel.profile.email}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ed_name"
+                    tools:text="mostafakamelkamel@gmail.com" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/name"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/coordinator_img_pro" />
-
-            <TextView
-                android:id="@+id/ed_name"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@drawable/_custom_bg_curve_edit_text"
-                android:padding="@dimen/_5sdp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_name"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name"
-                tools:text="mostafa kamel kamel" />
-
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/email"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ed_name" />
-
-            <TextView
-                android:id="@+id/ed_email"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@drawable/_custom_bg_curve_edit_text"
-                android:padding="@dimen/_5sdp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_email"
-                app:layout_constraintTop_toBottomOf="@+id/tv_email"
-                tools:text="mostafakamelkamel@gmail.com" />
-
-            <View
-                android:id="@+id/view1"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:layout_constraintTop_toBottomOf="@+id/ed_email"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:background="@color/color_94c356" />
 
             <TextView
                 android:id="@+id/tv_userPasswordTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_29sdp"
-                android:text="@string/label_password"
+                android:drawablePadding="@dimen/_5sdp"
+                android:text="@string/label_change_password"
                 android:textColor="@color/black"
+                android:onClick="@{() -> viewModel.onGoToChangePasswordClicked()}"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/tv_email"
-                app:layout_constraintTop_toBottomOf="@+id/view1" />
+                app:drawableStartCompat="@drawable/ic_edit_black_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coordinator_img_pro" />
 
-            <TextView
-                android:id="@+id/tv_userPasswordChange"
+            <ImageView
+                android:id="@+id/iv_movePassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_change_password"
-                android:textColor="@color/color_94c356"
-                android:textSize="@dimen/_14sdp"
-                android:drawablePadding="@dimen/_5sdp"
-                app:drawableStartCompat="@drawable/ic_edit_black_24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_userPasswordTXT"
-                app:layout_constraintEnd_toEndOf="@+id/ed_email"
-                app:layout_constraintTop_toTopOf="@+id/tv_userPasswordTXT" />
+                android:src="@drawable/ic_move"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_userPasswordTXT"
+                app:layout_constraintBottom_toBottomOf="@id/tv_userPasswordTXT"
+                android:contentDescription="@string/img" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/color_94c356"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_userPasswordTXT" />
 
             <TextView
                 android:id="@+id/tv_settingTXT"
@@ -166,40 +137,77 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_29sdp"
+                android:drawablePadding="@dimen/_5sdp"
                 android:text="@string/label_setting"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_baseline_settings_24"
                 app:layout_constraintStart_toStartOf="@id/tv_userPasswordTXT"
-                app:layout_constraintTop_toBottomOf="@+id/tv_userPasswordTXT" />
+                app:layout_constraintTop_toBottomOf="@+id/view1" />
 
-            <TextView
-                android:id="@+id/tv_setting"
+            <ImageView
+                android:id="@+id/iv_moveSetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_change_setting"
-                android:textColor="@color/color_94c356"
-                android:textSize="@dimen/_14sdp"
+                android:src="@drawable/ic_move"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_settingTXT"
+                app:layout_constraintBottom_toBottomOf="@id/tv_settingTXT"
+                android:contentDescription="@string/img" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/color_94c356"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_settingTXT" />
+
+            <TextView
+                android:id="@+id/tv_editProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_29sdp"
                 android:drawablePadding="@dimen/_5sdp"
-                app:drawableStartCompat="@drawable/ic_baseline_settings_24"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_settingTXT"
-                app:layout_constraintEnd_toEndOf="@+id/ed_email"
-                app:layout_constraintTop_toTopOf="@+id/tv_settingTXT" />
+                android:text="@string/editProfile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:onClick="@{() -> viewModel.onGoToEditProfileClicked()}"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_edit_icon"
+                app:layout_constraintStart_toStartOf="@id/tv_userPasswordTXT"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <ImageView
+                android:id="@+id/iv_moveEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_move"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_editProfile"
+                app:layout_constraintBottom_toBottomOf="@id/tv_editProfile"
+                android:contentDescription="@string/img" />
 
             <TextView
                 android:id="@+id/tv_logoutTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_29sdp"
-                android:text="@string/label_logout"
-                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:drawablePadding="@dimen/_5sdp"
+                android:onClick="@{() -> viewModel.getLogoutApi()}"
+                android:text="@string/label_logout"
+                android:textColor="@color/color_e50000"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                android:onClick="@{() -> viewModel.getLogoutApi()}"
-                app:layout_constraintStart_toStartOf="@id/tv_userPasswordTXT"
-                app:layout_constraintTop_toBottomOf="@+id/tv_settingTXT"  />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

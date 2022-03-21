@@ -58,11 +58,9 @@
                 android:id="@+id/checkbox_finish_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:gravity="center"
                 android:checked="true"
-                android:enabled="false"
-
+                android:buttonTint="@color/color_94c356"
                 app:layout_constraintBottom_toBottomOf="@id/iv_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_user" />

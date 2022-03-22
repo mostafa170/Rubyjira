@@ -34,6 +34,8 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         binding.executePendingBindings()
+        viewModel.setSelectProjectId("")
+        viewModel.setSelectTaskStatus("")
         viewModel.error.observe(viewLifecycleOwner) {
             if (it != null) {
                 mainActivityEventsListener.showErrorMessage(it)
@@ -47,7 +49,6 @@ class HomeFragment : Fragment() {
             else
                 mainActivityEventsListener.hideLoading()
         }
-
         viewModel.unauthenticated.observe(viewLifecycleOwner) {
             if (it != null && it){
                 mainActivityEventsListener.userUnauthenticated()
@@ -118,7 +119,8 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListener = OnIndexTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewIndex.apply {
@@ -126,7 +128,6 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListenerToday = OnTodayTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
                 viewModel.setSelectCompletedTask(it.id)
                 viewModel.getSelectCompletedTaskApi()
             }
@@ -136,7 +137,8 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListenerUpcoming = OnUpcomingTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewUpcoming.apply {
@@ -144,7 +146,8 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListenerOverdue = OnOverdueTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewOverdue.apply {
@@ -152,7 +155,8 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListenerNoOverdue = OnNoOverdueTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewNoOverdue.apply {
@@ -160,7 +164,8 @@ class HomeFragment : Fragment() {
         }
         val onItemClickListenerCompleted = OnCompletedTaskClickListener{
             if (it !=null){
-                Log.e("TAG", "onItemClickListener: $it" )
+                viewModel.setSelectCompletedTask(it.id)
+                viewModel.getSelectCompletedTaskApi()
             }
         }
         binding.recyclerViewCompleted.apply {

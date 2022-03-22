@@ -10,13 +10,15 @@ import com.devartlab.rubyjira.domain.entities.tasks.TodayEntities
 
 class TodayTaskAdapter (private val onItemClickListener: OnTodayTaskClickListener):
 ListAdapter<TodayEntities, TodayTaskAdapter.ViewHolder>(TodayTaskTypeDiffCallback()){
-
+    private var selectedItem:TodayEntities?=null
     class ViewHolder(val binding: ItemTodayTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             today: TodayEntities,
+            isSelected: Boolean,
             onClickListener: OnTodayTaskClickListener
         ) {
             binding.tasks = today
+            binding.isSelected = isSelected
             binding.onClickListener = onClickListener
             binding.executePendingBindings()
         }
@@ -32,7 +34,15 @@ ListAdapter<TodayEntities, TodayTaskAdapter.ViewHolder>(TodayTaskTypeDiffCallbac
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position),onItemClickListener)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int)  {
+        holder.bind(getItem(position), selectedItem == getItem(position), onItemClickListener)
+        holder.binding.checkboxFinishTask.setOnClickListener {
+            selectedItem = getItem(position)
+            notifyDataSetChanged()
+            holder.binding.checkboxFinishTask.isChecked = false
+            onItemClickListener.clickListener(selectedItem)
+        }
+    }
 
 }
 

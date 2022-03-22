@@ -79,7 +79,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                android:visibility="@{viewModel.myTask.indexEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="@+id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/tv_project" />
@@ -89,7 +89,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 indexTaskItems="@{viewModel.myTask.indexEntities}"
-                android:visibility="@{viewModel.myTask.indexEntities.size > 0 ? View.VISIBLE : View.GONE}"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/tv_project"
                 app:layout_constraintStart_toStartOf="@id/tv_project"
                 app:layout_constraintTop_toBottomOf="@+id/tv_index"

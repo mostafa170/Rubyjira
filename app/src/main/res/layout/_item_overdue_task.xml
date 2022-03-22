@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="isSelected"
+            type="Boolean" />
+        <variable
             name="tasks"
             type="com.devartlab.rubyjira.domain.entities.tasks.OverdueEntities" />
         <variable
@@ -60,6 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:checked="@{isSelected ? true : false}"
+                android:onClick="@{() -> onClickListener.onClick(tasks)}"
                 app:layout_constraintBottom_toBottomOf="@id/iv_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_user" />

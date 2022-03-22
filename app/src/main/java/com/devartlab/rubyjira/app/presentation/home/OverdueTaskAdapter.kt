@@ -12,13 +12,15 @@ import com.devartlab.rubyjira.domain.entities.tasks.OverdueEntities
 
 class OverdueTaskAdapter (private val onItemClickListener: OnOverdueTaskClickListener):
 ListAdapter<OverdueEntities, OverdueTaskAdapter.ViewHolder>(OverdueTaskTypeDiffCallback()){
-
+    private var selectedItem:OverdueEntities? = null
     class ViewHolder(val binding: ItemOverdueTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             overdue: OverdueEntities,
+            isSelected: Boolean,
             onClickListener: OnOverdueTaskClickListener
         ) {
             binding.tasks = overdue
+            binding.isSelected = isSelected
             binding.onClickListener = onClickListener
             binding.executePendingBindings()
         }
@@ -34,8 +36,15 @@ ListAdapter<OverdueEntities, OverdueTaskAdapter.ViewHolder>(OverdueTaskTypeDiffC
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position),onItemClickListener)
-
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position), selectedItem == getItem(position), onItemClickListener)
+        holder.binding.checkboxFinishTask.setOnClickListener {
+            selectedItem = getItem(position)
+            notifyDataSetChanged()
+            holder.binding.checkboxFinishTask.isChecked = false
+            onItemClickListener.clickListener(selectedItem)
+        }
+    }
 }
 
 

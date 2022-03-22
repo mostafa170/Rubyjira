@@ -10,13 +10,15 @@ import com.devartlab.rubyjira.domain.entities.tasks.UpcomingEntities
 
 class UpcomingTaskAdapter (private val onItemClickListener: OnUpcomingTaskClickListener):
 ListAdapter<UpcomingEntities, UpcomingTaskAdapter.ViewHolder>(UpcomingTaskTypeDiffCallback()){
-
+    private var selectedItem:UpcomingEntities? = null
     class ViewHolder(val binding: ItemUpcomingTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             upcoming: UpcomingEntities,
+            isSelected: Boolean,
             onClickListener: OnUpcomingTaskClickListener
         ) {
             binding.tasks = upcoming
+            binding.isSelected = isSelected
             binding.onClickListener = onClickListener
             binding.executePendingBindings()
         }
@@ -32,7 +34,15 @@ ListAdapter<UpcomingEntities, UpcomingTaskAdapter.ViewHolder>(UpcomingTaskTypeDi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position),onItemClickListener)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position), selectedItem == getItem(position), onItemClickListener)
+        holder.binding.checkboxFinishTask.setOnClickListener {
+            selectedItem = getItem(position)
+            notifyDataSetChanged()
+            holder.binding.checkboxFinishTask.isChecked = false
+            onItemClickListener.clickListener(selectedItem)
+        }
+    }
 
 }
 

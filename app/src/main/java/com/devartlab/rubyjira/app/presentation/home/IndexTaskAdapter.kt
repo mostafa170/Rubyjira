@@ -39,6 +39,7 @@ ListAdapter<IndexEntities, IndexTaskAdapter.ViewHolder>(IndexTaskTypeDiffCallbac
         holder.binding.checkboxFinishTask.setOnClickListener {
             selectedItem = getItem(position)
             notifyDataSetChanged()
+            holder.binding.checkboxFinishTask.isChecked = false
             onItemClickListener.clickListener(selectedItem)
         }
     }

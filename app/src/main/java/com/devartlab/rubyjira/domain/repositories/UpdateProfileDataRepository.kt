@@ -9,5 +9,6 @@ import okhttp3.RequestBody
 interface UpdateProfileDataRepository {
     suspend fun getUpdateProfile(
         body: Map<String, RequestBody?>,
-        profilePicture: MultipartBody.Part): Either<AppFailure, UserEntities>
+        profilePicture: MultipartBody.Part?
+    ): Either<AppFailure, UserEntities>
 }

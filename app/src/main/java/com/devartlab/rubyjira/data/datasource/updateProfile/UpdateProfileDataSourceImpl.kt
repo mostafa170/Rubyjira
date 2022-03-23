@@ -17,7 +17,7 @@ class UpdateProfileDataSourceImpl @Inject constructor(private val dispatcher: Co
     UpdateProfileDataSource {
     override suspend fun updateProfile(
         body: Map<String, RequestBody?>,
-        profilePicture: MultipartBody.Part
+        profilePicture: MultipartBody.Part?
     ): Either<AppFailure, UserEntities> =
         withContext(dispatcher) {
             try {

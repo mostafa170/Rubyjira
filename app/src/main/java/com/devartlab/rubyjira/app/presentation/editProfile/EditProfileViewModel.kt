@@ -117,7 +117,7 @@ class EditProfileViewModel @Inject constructor(
                 body["email"] = email
 
                 _loading.postValue(true)
-                updateProfileDataUseCase.invoke(body, _profilePicture.value!!).fold({
+                updateProfileDataUseCase.invoke(body, _profilePicture.value).fold({
                     _error.postValue(it.toErrorString())
                 }, {
                     _userUpdate.postValue(it)

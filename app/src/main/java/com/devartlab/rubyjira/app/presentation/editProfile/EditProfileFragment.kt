@@ -206,13 +206,13 @@ class ProfileFragment : Fragment() {
             if (it != null) {
                 try {
                     val imageFile =
-                        File(requireContext().cacheDir, "${System.currentTimeMillis()}_NationalID")
+                        File(requireContext().cacheDir, "${System.currentTimeMillis()}_ProfilePicture")
                     imageFile.createNewFile()
                     byteArray(it,imageFile)
 
                     val requestFile = imageFile.asRequestBody("image/*".toMediaTypeOrNull())
                     val bodyFile =
-                        MultipartBody.Part.createFormData("NationalID", imageFile.name, requestFile)
+                        MultipartBody.Part.createFormData("profile_picture", imageFile.name, requestFile)
 
                     Glide.with(this).load(imageFile).circleCrop().into(binding.editImage)
                     viewModel.onProfilePictureImageBitmapSet()

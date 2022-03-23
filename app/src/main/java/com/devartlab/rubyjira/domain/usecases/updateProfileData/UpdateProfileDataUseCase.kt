@@ -8,6 +8,6 @@ import javax.inject.Inject
 class UpdateProfileDataUseCase @Inject constructor(private val updateProfileDataRepository: UpdateProfileDataRepository) {
     suspend operator fun invoke(
         body: Map<String, RequestBody?>,
-        profilePicture: MultipartBody.Part
+        profilePicture: MultipartBody.Part?
     )=updateProfileDataRepository.getUpdateProfile(body, profilePicture)
 }

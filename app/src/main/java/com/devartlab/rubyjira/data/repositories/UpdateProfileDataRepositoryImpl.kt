@@ -13,7 +13,7 @@ class UpdateProfileDataRepositoryImpl @Inject constructor(private  val updatePro
     UpdateProfileDataRepository {
     override suspend fun getUpdateProfile(
         body: Map<String, RequestBody?>,
-        profilePicture: MultipartBody.Part
+        profilePicture: MultipartBody.Part?
     ): Either<AppFailure, UserEntities> =
         updateProfileDataSource.updateProfile(body,profilePicture)
 }

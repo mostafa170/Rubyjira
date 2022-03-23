@@ -37,6 +37,7 @@ interface APICalls {
 
     @Multipart
     @POST("profile/update")
-    fun getUpdateProfileApiAsync(@PartMap  body: Map<String, @JvmSuppressWildcards RequestBody?>,
-                                 @Part profilePicture: MultipartBody.Part): Deferred<Response<UpdateProfileResponse>>
+    fun getUpdateProfileApiAsync(@PartMap body: Map<String, @JvmSuppressWildcards RequestBody?>,
+                                 @Part profilePicture: MultipartBody.Part?
+    ): Deferred<Response<UpdateProfileResponse>>
 }

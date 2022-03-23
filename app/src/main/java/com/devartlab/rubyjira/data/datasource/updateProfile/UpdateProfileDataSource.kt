@@ -7,6 +7,8 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
 interface UpdateProfileDataSource {
-    suspend fun updateProfile(body: Map<String, RequestBody?>,
-                              profilePicture: MultipartBody.Part): Either<AppFailure, UserEntities>
+    suspend fun updateProfile(
+        body: Map<String, RequestBody?>,
+        profilePicture: MultipartBody.Part?
+    ): Either<AppFailure, UserEntities>
 }

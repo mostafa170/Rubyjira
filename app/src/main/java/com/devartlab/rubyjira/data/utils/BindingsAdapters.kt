@@ -29,7 +29,7 @@ fun loadImage(view: ImageView, url: String) {
 
 @BindingAdapter("imageUrlCircle")
 fun bindImageViewWithCircleGlideUrl(imageView: ImageView, url: String?) {
-    Glide.with(imageView.context).load(url)
+    Glide.with(imageView.context).load(PATH_IMAGE+url)
         .error(R.drawable.user_logo)
         .circleCrop().into(imageView)
 }

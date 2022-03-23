@@ -13,7 +13,7 @@
     <string name="enter_email">Enter email</string>
     <string name="label_change_password">Change Password</string>
     <string name="update">Update</string>
-    <string name="label_enter_your_password">Enter your password</string>
+    <string name="label_enter_your_password">Enter new password</string>
     <string name="label_password_confirm">Password confirm</string>
     <string name="label_enter_new_password">Enter new password</string>
     <string name="label_setting">Setting</string>

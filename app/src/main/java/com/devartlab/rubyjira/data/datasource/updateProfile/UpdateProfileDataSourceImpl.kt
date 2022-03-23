@@ -27,7 +27,7 @@ class UpdateProfileDataSourceImpl @Inject constructor(private val dispatcher: Co
                     response.code() == SUCCESS -> {
                         response.body()?.let { body ->
                             body.user.let {
-//                                SharedPreferencesData.setAuthToken(SharedPreferencesData.getAuthToken())
+                                SharedPreferencesData.setAuthToken(SharedPreferencesData.getAuthToken())
                                 it.toDomainUserUpdate().saveToSharedPreferences()
                                 return@withContext Either.Right(it.toDomainUserUpdate())
                             }

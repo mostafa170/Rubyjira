@@ -70,10 +70,13 @@ class MainActivity : AppCompatActivity(), MainActivityEventsListener,
                 }
             }
         }
-        if (SharedPreferencesData.getAuthToken().isNotEmpty())
-            navController.navigate(R.id.homeFragment, null, navOptions)
-        else
-            navController.navigate(R.id.loginFragment, null, navOptions)
+        if (!SharedPreferencesData.isFirstOpen()) {
+            if (SharedPreferencesData.getAuthToken().isNotEmpty())
+                navController.navigate(R.id.homeFragment, null, navOptions)
+            else
+                navController.navigate(R.id.loginFragment, null, navOptions)
+        } else
+            SharedPreferencesData.setIsFirstOpen(false)
     }
 
     override fun showLoading() {
@@ -81,14 +84,14 @@ class MainActivity : AppCompatActivity(), MainActivityEventsListener,
     }
 
     override fun hideLoading() {
-       myDialog.hideLoadingDialog()
+        myDialog.hideLoadingDialog()
     }
 
-    override fun showErrorMessage( message: String) {
+    override fun showErrorMessage(message: String) {
         myDialog.showErrorMessageDialog(message)
     }
 
-    override fun showSuccessMessage( message: String) {
+    override fun showSuccessMessage(message: String) {
         myDialog.showSuccessMessageDialog(message)
     }
 

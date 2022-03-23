@@ -31,4 +31,15 @@
     <string name="index">Inbox</string>
     <string name="today">Today</string>
     <string name="editProfile">Edit profile</string>
+    <string name="label_skip">Skip</string>
+    <string name="label_introWelcome1_title">Task magement</string>
+    <string name="label_introWelcome1_content">Let\'s Create a Space Workflows</string>
+    <string name="label_introWelcome2_content">Task , Calendar</string>
+    <string name="label_introWelcome3_content">Work With Team Anytime</string>
+    <string name="next">Next</string>
+    <string name="label_introWelcome_title">RUBYJIRA</string>
+    <string name="password_not_match">Password not match</string>
+    <string name="choose_image">Choose image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

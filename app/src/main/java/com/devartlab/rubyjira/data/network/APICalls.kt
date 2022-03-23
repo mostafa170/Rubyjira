@@ -1,11 +1,11 @@
 package com.devartlab.rubyjira.data.network
 
+import com.devartlab.rubyjira.app.presentation.changePassword.ChangePasswordRequest
 import com.devartlab.rubyjira.app.presentation.login.LoginRequest
-import com.devartlab.rubyjira.data.models.LoginResponse
-import com.devartlab.rubyjira.data.models.DefaultResponse
-import com.devartlab.rubyjira.data.models.MyProjectResponse
-import com.devartlab.rubyjira.data.models.MyTasksResponse
+import com.devartlab.rubyjira.data.models.*
 import kotlinx.coroutines.Deferred
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -32,4 +32,11 @@ interface APICalls {
         @Query("filter") filter: String
     ): Deferred<Response<MyTasksResponse>>
 
+    @POST("change-password")
+    fun getChangePasswordApiAsync(@Body changePasswordRequest: ChangePasswordRequest): Deferred<Response<DefaultResponse>>
+
+    @Multipart
+    @POST("profile/update")
+    fun getUpdateProfileApiAsync(@PartMap  body: Map<String, @JvmSuppressWildcards RequestBody?>,
+                                 @Part profilePicture: MultipartBody.Part): Deferred<Response<UpdateProfileResponse>>
 }

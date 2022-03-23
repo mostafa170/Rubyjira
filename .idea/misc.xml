@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable-v24/_splash_screen.xml" value="0.113" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable-v24/ic_arrow_back.xml" value="0.122" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable-v24/ic_dot_active.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_bg_curve_edit_text.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_bg_curve_top_green.xml" value="0.113" />
@@ -12,16 +14,21 @@
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_custom_ic_home.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/_splash_screen.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/bg_green.xml" value="0.1705" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/bg_green_fill.xml" value="0.122" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_arrow_right.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.1705" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1705" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_calendar_month.xml" value="0.113" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_camera.xml" value="0.122" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_change_password.xml" value="0.1705" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_dot.xml" value="0.122" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_drop_down.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_edit_black_24dp.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_edit_icon.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_error_icon.xml" value="0.1" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_home.xml" value="0.1705" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_image_gallery.xml" value="0.122" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_intro_img_1.xml" value="0.122" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_notification.xml" value="0.1705" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_pass.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_profile.xml" value="0.1705" />
@@ -29,25 +36,30 @@
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_succes_icon.xml" value="0.113" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/ic_username.xml" value="0.1675" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/drawable/side_nav_bar.xml" value="0.113" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_choose_camera_gallery.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_error.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_loading.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_dialog_success.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_completed_task.xml" value="0.2" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_index_task.xml" value="0.22" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_intro.xml" value="0.1921875" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_no_overdue_task.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_overdue_task.xml" value="0.33" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_task.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_today_task.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/_item_upcoming_task.xml" value="0.18" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_change_password.xml" value="0.25" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_change_password.xml" value="0.1375" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1783783783783784" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_notification.xml" value="0.1921875" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_on_board.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/layout/fragment_show_profile.xml" value="0.22" />
         <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/menu/task_popup_menu.xml" value="0.25" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/work/DevartLab/Rubyjira/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>
